@@ -1,4 +1,6 @@
 # LoCobSS-text-profanity
+Setup tested and deployed on Google Cloud Run
+
 
 ## Word by Word comparison based on dictionaries
 
