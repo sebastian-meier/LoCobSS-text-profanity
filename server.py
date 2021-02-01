@@ -11,6 +11,7 @@ import six
 from google.cloud import translate_v2 as translate
 import html
 
+import os
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -46,4 +47,4 @@ class Predict(Resource):
 API.add_resource(Predict, '/predict')
 
 if __name__ == '__main__':
-  APP.run(debug=True, port='1080')
+  APP.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 8080))
