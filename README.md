@@ -1,6 +1,13 @@
 # LoCobSS-text-profanity
 Setup tested and deployed on Google Cloud Run
 
+## Local Setup
+.env file
+```
+GOOGLE_APPLICATION_CREDENTIALS=
+```
+see: https://cloud.google.com/docs/authentication/production
+
 
 ## Word by Word comparison based on dictionaries
 
