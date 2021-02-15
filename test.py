@@ -1,9 +1,9 @@
 import requests
 
-url = 'http://localhost:1080/predict'
+url = 'https://profanity-rzuu3ecqxa-ey.a.run.app/predict'
 
 body = {
-    "text": "Arschpimmel"
+    "text": "Shit fuck"
 }
 
 response = requests.post(url, data=body)

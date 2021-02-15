@@ -8,6 +8,11 @@ GOOGLE_APPLICATION_CREDENTIALS=
 ```
 see: https://cloud.google.com/docs/authentication/production
 
+## Deployment
+```bash
+gcloud builds submit --tag gcr.io/bmbf-research-agenda/profanity
+gcloud run deploy --image gcr.io/bmbf-research-agenda/profanity --platform managed
+```
 
 ## Word by Word comparison based on dictionaries
 
