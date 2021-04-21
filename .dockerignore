@@ -3,6 +3,7 @@
 .github
 LICENSE
 README.md
+tmp
 TODO.md
 .env
 Dockerfile
