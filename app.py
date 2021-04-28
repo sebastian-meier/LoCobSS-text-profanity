@@ -23,6 +23,8 @@ load_dotenv()
 app = Flask(__name__)
 app.config['DEBUG'] = False
 
+swagger = Swagger(app)
+
 @app.route('/')
 def root():
   """Default endpoint for testing
