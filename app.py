@@ -4,6 +4,7 @@ logging.root.setLevel(logging.ERROR)
 
 from flask import Flask
 from flask_restful import Api, Resource, reqparse
+from flasgger import Swagger
 
 from profanityfilter import ProfanityFilter
 pf = ProfanityFilter()
@@ -24,10 +25,51 @@ app.config['DEBUG'] = False
 
 @app.route('/')
 def root():
+  """Default endpoint for testing
+    ---
+    produces:
+      - text/plain
+    responses:
+      200:
+        description: Service is alive
+        examples:
+          text/plain: Hello
+  """
   return 'Hello', 200
 
 @app.route('/predict', methods=['POST'])
 def predict():
+  """Endpoint for generating profanity predictions for a text.
+    ---
+    parameters:
+      - name: text
+        type: string
+        required: true
+    definitions:
+      sonar:
+        type: object
+        properties:
+          class_name: 
+            type: text
+          confidence: 
+            type: float
+    responses:
+      200:
+        description: Profanity evaluations
+        schema:
+          type: object
+          properties:
+            profanity:
+              type: boolean
+            text:
+              type: string
+            sonar:
+              type: array
+              items:
+                $ref: '#/definitions/sonar'
+        examples: 
+          application/json: {'profanity': false, 'text': 'Hello world', 'sonar': [{ 'class_name':'hate_speech', 'confidence': 0.5 }]}
+  """
   parser = reqparse.RequestParser()
   parser.add_argument('text')
   args = parser.parse_args()
